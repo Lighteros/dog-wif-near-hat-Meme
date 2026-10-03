@@ -1,3 +1,17 @@
+const copyCa = document.getElementById("copy-ca");
+if (copyCa) {
+  copyCa.addEventListener("click", async () => {
+    const label = copyCa.querySelector("em");
+    try {
+      await navigator.clipboard.writeText(copyCa.dataset.ca);
+      label.textContent = "Copied";
+    } catch (err) {
+      label.textContent = copyCa.dataset.ca;
+    }
+    setTimeout(() => { label.textContent = "Copy"; }, 1400);
+  });
+}
+
 const nav = document.getElementById("nav");
 const menu = document.getElementById("menu");
 const links = document.getElementById("links");
